@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheOutstride - Minecraft Server</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        nav ul li a.active {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease;
+        }
+
+        .server-ip {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1.5rem 3rem;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 2rem 0;
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .server-ip:hover {
+            transform: scale(1.05);
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .server-ip span {
+            color: #4ade80;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .stat-card h3 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: #4ade80;
+        }
+
+        .stat-card p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #4ade80;
+        }
+
+        .feature-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #4ade80;
+            color: #1a1a1a;
+        }
+
+        .btn-primary:hover {
+            background: #22c55e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(74, 222, 128, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .server-ip {
+                font-size: 1.3rem;
+                padding: 1rem 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="rules.html">Rules</a></li>
+            <li><a href="staff.html">Staff</a></li>
+            <li><a href="vote.html">Vote</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>Welcome to TheOutstride</h1>
+        <p>Your Ultimate Minecraft Adventure Awaits</p>
+        <div class="server-ip" onclick="copyIP()">
+            <span>play.theoutstride.com</span>
+        </div>
+        <p style="font-size: 1rem; opacity: 0.7;">Click to copy server IP</p>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <h3>500+</h3>
+            <p>Active Players</p>
+        </div>
+        <div class="stat-card">
+            <h3>24/7</h3>
+            <p>Server Uptime</p>
+        </div>
+        <div class="stat-card">
+            <h3>10+</h3>
+            <p>Game Modes</p>
+        </div>
+        <div class="stat-card">
+            <h3>99.9%</h3>
+            <p>Uptime Rate</p>
+        </div>
+    </div>
+
+    <div class="features">
+        <h2>Why Choose TheOutstride?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>🎮 Multiple Game Modes</h3>
+                <p>Experience Survival, Creative, Skyblock, Prison, and many more exciting game modes all in one server!</p>
+            </div>
+            <div class="feature-card">
+                <h3>🛡️ Active Staff Team</h3>
+                <p>Our dedicated staff team is always online to help you and ensure a safe, fun environment for everyone.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🏆 Custom Features</h3>
+                <p>Enjoy unique custom plugins, events, and features you won't find anywhere else!</p>
+            </div>
+            <div class="feature-card">
+                <h3>💎 Economy System</h3>
+                <p>Build your wealth with our balanced economy system, shops, and trading opportunities.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🌍 Active Community</h3>
+                <p>Join a friendly and welcoming community of players from around the world.</p>
+            </div>
+            <div class="feature-card">
+                <h3>⚡ No Lag</h3>
+                <p>Experience smooth gameplay with our high-performance servers and optimized plugins.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta">
+        <h2>Ready to Start Your Adventure?</h2>
+        <p>Join thousands of players in TheOutstride community today!</p>
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">Join Discord</a>
+            <a href="vote.html" class="btn btn-secondary">Vote for Us</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 TheOutstride. All rights reserved.</p>
+        <p>Not affiliated with Mojang or Microsoft.</p>
+    </footer>
+
+    <script>
+        function copyIP() {
+            const ip = 'play.theoutstride.com';
+            navigator.clipboard.writeText(ip).then(() => {
+                alert('Server IP copied to clipboard!');
+            }).catch(() => {
+                alert('Server IP: ' + ip);
+            });
+        }
+    </script>
+</body>
+</html>

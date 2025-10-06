@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote - TheOutstride</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        nav ul li a.active {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        .rewards-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .rewards-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #4ade80;
+            text-align: center;
+        }
+
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .reward-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid rgba(74, 222, 128, 0.3);
+        }
+
+        .reward-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #4ade80;
+        }
+
+        .reward-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .vote-sites {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .vote-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .vote-card:hover {
+            transform: translateX(10px);
+            border-color: rgba(74, 222, 128, 0.5);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .vote-info {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .vote-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #4ade80;
+        }
+
+        .vote-info p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .vote-button {
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            background: #4ade80;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .vote-button:hover {
+            background: #22c55e;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(74, 222, 128, 0.4);
+        }
+
+        .info-box {
+            background: rgba(74, 222, 128, 0.2);
+            border: 2px solid rgba(74, 222, 128, 0.5);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .info-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #4ade80;
+        }
+
+        .info-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .top-voters {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            margin-top: 3rem;
+        }
+
+        .top-voters h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #4ade80;
+            text-align: center;
+        }
+
+        .voter-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .voter-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid #4ade80;
+        }
+
+        .voter-rank {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4ade80;
+            min-width: 60px;
+        }
+
+        .voter-name {
+            flex: 1;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .voter-count {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        .gold { color: #fbbf24; border-left-color: #fbbf24; }
+        .silver { color: #d1d5db; border-left-color: #d1d5db; }
+        .bronze { color: #f97316; border-left-color: #f97316; }
+
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .vote-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .voter-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="rules.html">Rules</a></li>
+            <li><a href="staff.html">Staff</a></li>
+            <li><a href="vote.html" class="active">Vote</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Vote for TheOutstride</h1>
+            <p>Support our server and earn amazing rewards!</p>
+        </div>
+
+        <div class="info-box">
+            <h3>🎁 Why Vote?</h3>
+            <p>
+                Voting helps our server grow and brings more players to our community! 
+                As a thank you, you'll receive awesome in-game rewards for each vote. 
+                You can vote on each site once every 24 hours!
+            </p>
+        </div>
+
+        <div class="rewards-section">
+            <h2>Vote Rewards</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 1rem;">
+                Receive these rewards for EACH vote:
+            </p>
+            <div class="rewards-grid">
+                <div class="reward-item">
+                    <h3>💰 $500</h3>
+                    <p>In-game Money</p>
+                </div>
+                <div class="reward-item">
+                    <h3>🎁 1x</h3>
+                    <p>Vote Crate Key</p>
+                </div>
+                <div class="reward-item">
+                    <h3>⭐ 50</h3>
+                    <p>Experience Points</p>
+                </div>
+                <div class="reward-item">
+                    <h3>🏆 1</h3>
+                    <p>Vote Point</p>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 1rem; margin-top: 1.5rem; opacity: 0.8;">
+                Vote on all sites daily to maximize your rewards!
+            </p>
+        </div>
+
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #4ade80;">
+            Vote Sites
+        </h2>
+
+        <div class="vote-sites">
+            <div class="vote-card">
+                <div class="vote-info">
+                    <h3>🥇 Minecraft-Server-List</h3>
+                    <p>Vote every 24 hours • Rewards: All vote rewards</p>
+                </div>
+                <a href="#" class="vote-button">Vote Now</a>
+            </div>
+
+            <div class="vote-card">
+                <div class="vote-info">
+                    <h3>🥈 Minecraft-MP</h3>
+                    <p>Vote every 24 hours • Rewards: All vote rewards</p>
+                </div>
+                <a href="#" class="vote-button">Vote Now</a>
+            </div>
+
+            <div class="vote-card">
+                <div class="vote-info">
+                    <h3>🥉 TopG</h3>
+                    <p>Vote every 24 hours • Rewards: All vote rewards</p>
+                </div>
+                <a href="#" class="vote-button">Vote Now</a>
+            </div>
+
+            <div class="vote-card">
+                <div class="vote-info">
+                    <h3>🎮 MinecraftServers.org</h3>
+                    <p>Vote every 24 hours • Rewards: All vote rewards</p>
+                </div>
+                <a href="#" class="vote-button">Vote Now</a>
+            </div>
+
+            <div class="vote-card">
+                <div class="vote-info">
+                    <h3>⭐ Planet Minecraft</h3>
+                    <p>Vote every 24 hours • Rewards: All vote rewards</p>
+                </div>
+                <a href="#" class="vote-button">Vote Now</a>
+            </div>
+
+            <div class="vote-card">
+                <div class="vote-info">
+                    <h3>🌟 Minecraft Server List</h3>
+                    <p>Vote every 24 hours • Rewards: All vote rewards</p>
+                </div>
+                <a href="#" class="vote-button">Vote Now</a>
+            </div>
+        </div>
+
+        <div class="top-voters">
+            <h2>🏆 Top Voters This Month</h2>
+            <div class="voter-list">
+                <div class="voter-item gold">
+                    <span class="voter-rank">🥇</span>
+                    <span class="voter-name">PlayerName1</span>
+                    <span class="voter-count">180 votes</span>
+                </div>
+                <div class="voter-item silver">
+                    <span class="voter-rank">🥈</span>
+                    <span class="voter-name">PlayerName2</span>
+                    <span class="voter-count">175 votes</span>
+                </div>
+                <div class="voter-item bronze">
+                    <span class="voter-rank">🥉</span>
+                    <span class="voter-name">PlayerName3</span>
+                    <span class="voter-count">168 votes</span>
+                </div>
+                <div class="voter-item">
+                    <span class="voter-rank">4</span>
+                    <span class="voter-name">PlayerName4</span>
+                    <span class="voter-count">152 votes</span>
+                </div>
+                <div class="voter-item">
+                    <span class="voter-rank">5</span>
+                    <span class="voter-name">PlayerName5</span>
+                    <span class="voter-count">148 votes</span>
+                </div>
+                <div class="voter-item">
+                    <span class="voter-rank">6</span>
+                    <span class="voter-name">PlayerName6</span>
+                    <span class="voter-count">142 votes</span>
+                </div>
+                <div class="voter-item">
+                    <span class="voter-rank">7</span>
+                    <span class="voter-name">PlayerName7</span>
+                    <span class="voter-count">138 votes</span>
+                </div>
+                <div class="voter-item">
+                    <span class="voter-rank">8</span>
+                    <span class="voter-name">PlayerName8</span>
+                    <span class="voter-count">135 votes</span>
+                </div>
+                <div class="voter-item">
+                    <span class="voter-rank">9</span>
+                    <span class="voter-name">PlayerName9</span>
+                    <span class="voter-count">130 votes</span>
+                </div>
+                <div class="voter-item">
+                    <span class="voter-rank">10</span>
+                    <span class="voter-name">PlayerName10</span>
+                    <span class="voter-count">125 votes</span>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; font-size: 1.1rem; opacity: 0.8;">
+                Top voters receive special rewards at the end of each month!
+            </p>
+        </div>
+
+        <div class="rewards-section" style="margin-top: 3rem;">
+            <h2>Monthly Top Voter Rewards</h2>
+            <div class="rewards-grid">
+                <div class="reward-item gold">
+                    <h3>🥇 1st Place</h3>
+                    <p>$10,000 + Legendary Crate + Special Rank</p>
+                </div>
+                <div class="reward-item silver">
+                    <h3>🥈 2nd Place</h3>
+                    <p>$7,500 + Epic Crate + Bonus Items</p>
+                </div>
+                <div class="reward-item bronze">
+                    <h3>🥉 3rd Place</h3>
+                    <p>$5,000 + Rare Crate + Bonus Items</p>
+                </div>
+                <div class="reward-item">
+                    <h3>🏅 4th-10th</h3>
+                    <p>$2,500 + Vote Crate Keys</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 TheOutstride. All rights reserved.</p>
+        <p>Not affiliated with Mojang or Microsoft.</p>
+    </footer>
+</body>
+</html>

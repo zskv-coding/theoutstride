@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - TheOutstride</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        nav ul li a.active {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #4ade80;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content-section ul li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .content-section ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 15px;
+            height: 15px;
+            background: #4ade80;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #4ade80;
+        }
+
+        .timeline-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="rules.html">Rules</a></li>
+            <li><a href="staff.html">Staff</a></li>
+            <li><a href="vote.html">Vote</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>About TheOutstride</h1>
+            <p>Learn more about our server and community</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Our Story</h2>
+            <p>
+                TheOutstride was founded with a simple vision: to create the ultimate Minecraft experience where players 
+                can explore, build, and thrive together. What started as a small community has grown into one of the most 
+                vibrant and welcoming Minecraft servers around.
+            </p>
+            <p>
+                We believe in creating a space where creativity knows no bounds, where friendships are forged, and where 
+                every player can find their place. Whether you're a builder, a fighter, a trader, or an explorer, 
+                TheOutstride has something special for you.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>What Makes Us Different</h2>
+            <ul>
+                <li>Custom-built plugins designed specifically for our community</li>
+                <li>Regular events and competitions with amazing prizes</li>
+                <li>Fair and balanced gameplay with active anti-cheat systems</li>
+                <li>Dedicated staff team available 24/7</li>
+                <li>Regular updates and new content additions</li>
+                <li>Player-driven economy and marketplace</li>
+                <li>Cross-platform support (Java & Bedrock)</li>
+                <li>Active Discord community with thousands of members</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Our Mission</h2>
+            <p>
+                At TheOutstride, our mission is to provide a safe, fun, and engaging environment for Minecraft players 
+                of all ages and skill levels. We strive to:
+            </p>
+            <ul>
+                <li>Foster a positive and inclusive community</li>
+                <li>Continuously improve and innovate our gameplay experience</li>
+                <li>Listen to our players and implement their feedback</li>
+                <li>Maintain the highest standards of server performance and security</li>
+                <li>Create memorable experiences that keep players coming back</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Server Milestones</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>2024 - Grand Opening</h3>
+                    <p>TheOutstride officially launched with Survival and Creative modes</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>First 100 Players</h3>
+                    <p>Reached our first milestone of 100 concurrent players online</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Major Expansion</h3>
+                    <p>Added Skyblock, Prison, and custom minigames</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Community Growth</h3>
+                    <p>Welcomed over 10,000 unique players to our community</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Today</h3>
+                    <p>Continuing to grow and improve with regular updates and new features</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Join Our Community</h2>
+            <p>
+                Ready to be part of something special? Connect with us on Discord, follow our social media, and join 
+                the server today. We can't wait to see what you'll create and achieve in TheOutstride!
+            </p>
+            <p style="margin-top: 1.5rem; font-size: 1.3rem; text-align: center;">
+                <strong>Server IP: <span style="color: #4ade80;">play.theoutstride.com</span></strong>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 TheOutstride. All rights reserved.</p>
+        <p>Not affiliated with Mojang or Microsoft.</p>
+    </footer>
+</body>
+</html>

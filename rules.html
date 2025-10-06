@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules - TheOutstride</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        nav ul li a.active {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, 0.2);
+            border: 2px solid rgba(239, 68, 68, 0.5);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .warning-box h3 {
+            color: #fca5a5;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .warning-box p {
+            font-size: 1.1rem;
+        }
+
+        .rules-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .rules-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #4ade80;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rule-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #4ade80;
+            transition: all 0.3s ease;
+        }
+
+        .rule-item:hover {
+            background: rgba(0, 0, 0, 0.3);
+            transform: translateX(5px);
+        }
+
+        .rule-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #4ade80;
+        }
+
+        .rule-item p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .punishment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .punishment-table th,
+        .punishment-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .punishment-table th {
+            background: rgba(0, 0, 0, 0.3);
+            color: #4ade80;
+            font-size: 1.1rem;
+        }
+
+        .punishment-table td {
+            font-size: 1rem;
+        }
+
+        .punishment-table tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .rules-section {
+                padding: 1.5rem;
+            }
+
+            .punishment-table {
+                font-size: 0.9rem;
+            }
+
+            .punishment-table th,
+            .punishment-table td {
+                padding: 0.5rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="rules.html" class="active">Rules</a></li>
+            <li><a href="staff.html">Staff</a></li>
+            <li><a href="vote.html">Vote</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Server Rules</h1>
+            <p>Please read and follow all rules to ensure a great experience for everyone</p>
+        </div>
+
+        <div class="warning-box">
+            <h3>⚠️ Important Notice</h3>
+            <p>Ignorance of the rules is not an excuse. By playing on TheOutstride, you agree to follow all rules listed below.</p>
+        </div>
+
+        <div class="rules-section">
+            <h2>🎮 General Rules</h2>
+            <div class="rule-item">
+                <h3>1. Be Respectful</h3>
+                <p>Treat all players and staff with respect. Harassment, bullying, discrimination, or hate speech of any kind will not be tolerated.</p>
+            </div>
+            <div class="rule-item">
+                <h3>2. No Cheating or Hacking</h3>
+                <p>The use of hacked clients, x-ray texture packs, or any unfair advantage is strictly prohibited. This includes auto-clickers, kill aura, fly hacks, etc.</p>
+            </div>
+            <div class="rule-item">
+                <h3>3. No Griefing</h3>
+                <p>Do not destroy, modify, or steal from other players' builds without permission. Respect others' property and creations.</p>
+            </div>
+            <div class="rule-item">
+                <h3>4. Keep Chat Clean</h3>
+                <p>No excessive swearing, spam, advertising, or inappropriate content in chat. Keep conversations friendly and appropriate for all ages.</p>
+            </div>
+            <div class="rule-item">
+                <h3>5. No Exploiting</h3>
+                <p>Do not exploit bugs, glitches, or duplication methods. Report any bugs you find to staff immediately.</p>
+            </div>
+            <div class="rule-item">
+                <h3>6. English Only in Global Chat</h3>
+                <p>Please use English in global chat to ensure staff can moderate effectively. You may use other languages in private messages.</p>
+            </div>
+        </div>
+
+        <div class="rules-section">
+            <h2>🏗️ Building & Gameplay Rules</h2>
+            <div class="rule-item">
+                <h3>1. Appropriate Builds Only</h3>
+                <p>Do not create offensive, inappropriate, or explicit builds. This includes symbols, structures, or pixel art.</p>
+            </div>
+            <div class="rule-item">
+                <h3>2. No Lag Machines</h3>
+                <p>Do not create machines or contraptions designed to lag the server or cause performance issues.</p>
+            </div>
+            <div class="rule-item">
+                <h3>3. Claim Your Land</h3>
+                <p>Use the claiming system to protect your builds. Staff cannot restore unclaimed builds that are griefed.</p>
+            </div>
+            <div class="rule-item">
+                <h3>4. Respect Build Proximity</h3>
+                <p>Do not build too close to other players without permission. Give others space for their projects.</p>
+            </div>
+        </div>
+
+        <div class="rules-section">
+            <h2>💬 Chat & Communication Rules</h2>
+            <div class="rule-item">
+                <h3>1. No Spam</h3>
+                <p>Do not spam messages, commands, or repeat the same message multiple times.</p>
+            </div>
+            <div class="rule-item">
+                <h3>2. No Advertising</h3>
+                <p>Do not advertise other servers, Discord servers, websites, or social media without permission.</p>
+            </div>
+            <div class="rule-item">
+                <h3>3. No Begging</h3>
+                <p>Do not beg for items, ranks, money, or staff positions. Work for your achievements!</p>
+            </div>
+            <div class="rule-item">
+                <h3>4. No Impersonation</h3>
+                <p>Do not pretend to be staff members or other players.</p>
+            </div>
+        </div>
+
+        <div class="rules-section">
+            <h2>👮 Staff & Appeals</h2>
+            <div class="rule-item">
+                <h3>1. Listen to Staff</h3>
+                <p>Always follow staff instructions. If you disagree with a decision, appeal it respectfully through proper channels.</p>
+            </div>
+            <div class="rule-item">
+                <h3>2. Report Issues Properly</h3>
+                <p>Use the proper channels to report players or issues. Do not spam staff or create drama in public chat.</p>
+            </div>
+            <div class="rule-item">
+                <h3>3. Appeal Process</h3>
+                <p>If you believe you were punished unfairly, submit an appeal on our Discord server with evidence and a clear explanation.</p>
+            </div>
+        </div>
+
+        <div class="rules-section">
+            <h2>⚖️ Punishment Guidelines</h2>
+            <table class="punishment-table">
+                <thead>
+                    <tr>
+                        <th>Offense</th>
+                        <th>1st Offense</th>
+                        <th>2nd Offense</th>
+                        <th>3rd Offense</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Chat Violations</td>
+                        <td>Warning/Mute (1h)</td>
+                        <td>Mute (24h)</td>
+                        <td>Mute (7d)</td>
+                    </tr>
+                    <tr>
+                        <td>Griefing</td>
+                        <td>Ban (3d)</td>
+                        <td>Ban (14d)</td>
+                        <td>Permanent Ban</td>
+                    </tr>
+                    <tr>
+                        <td>Hacking/Cheating</td>
+                        <td>Ban (30d)</td>
+                        <td>Permanent Ban</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Exploiting</td>
+                        <td>Ban (7d)</td>
+                        <td>Ban (30d)</td>
+                        <td>Permanent Ban</td>
+                    </tr>
+                    <tr>
+                        <td>Advertising</td>
+                        <td>Permanent Ban</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Severe Harassment</td>
+                        <td>Ban (14d)</td>
+                        <td>Permanent Ban</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.8;">
+                * Staff reserve the right to adjust punishments based on severity and context.
+            </p>
+        </div>
+
+        <div class="rules-section">
+            <h2>📝 Final Notes</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                These rules are subject to change at any time. Staff have the final say in all situations. 
+                Use common sense and be a positive member of our community. If you're unsure about something, 
+                ask a staff member before doing it. Remember, we're all here to have fun and enjoy Minecraft together!
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 TheOutstride. All rights reserved.</p>
+        <p>Not affiliated with Mojang or Microsoft.</p>
+    </footer>
+</body>
+</html>
