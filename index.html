@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheOutstride - Minecraft Server</title>
+    <title>TheOutstride - Content Creator SMP</title>
     <style>
         * {
             margin: 0;
@@ -12,294 +12,202 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #fff;
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
         }
 
-        /* Navigation */
         nav {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
+            background: #111;
+            padding: 1rem 0;
+            border-bottom: 1px solid #222;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
             gap: 2rem;
+            flex-wrap: wrap;
         }
 
-        nav ul li a {
-            color: #fff;
+        nav a {
+            color: #999;
             text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
         }
 
-        nav ul li a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        nav a:hover,
+        nav a.active {
+            color: #fff;
         }
 
-        nav ul li a.active {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .nav-vote {
-            display: none;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 4rem 2rem;
-            max-width: 1200px;
+        .container {
+            max-width: 1100px;
             margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .hero {
+            padding: 5rem 0 4rem;
+            text-align: center;
         }
 
         .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: fadeInDown 1s ease;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #fff;
         }
 
         .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease;
+            font-size: 1.1rem;
+            color: #888;
+            margin-bottom: 0.5rem;
         }
 
-        .server-ip {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 1.5rem 3rem;
-            border-radius: 10px;
-            display: inline-block;
-            margin: 2rem 0;
-            font-size: 1.8rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .server-ip:hover {
-            transform: scale(1.05);
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        .server-ip span {
-            color: #4ade80;
-        }
-
-        /* Stats Section */
         .stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
         }
 
-        .stat-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 15px;
+        .stat {
+            background: #111;
+            padding: 2rem 1.5rem;
+            border: 1px solid #222;
             text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        .stat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.4);
+        .stat h3 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 0.3rem;
         }
 
-        .stat-card h3 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            color: #4ade80;
+        .stat p {
+            color: #666;
+            font-size: 0.9rem;
         }
 
-        .stat-card p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        .section {
+            padding: 3rem 0;
         }
 
-        /* Features Section */
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
         .features {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .feature-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
+        .feature {
+            background: #111;
+            padding: 1.8rem;
+            border: 1px solid #222;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.4);
+        .feature h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: #fff;
+            font-weight: 600;
         }
 
-        .feature-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #4ade80;
-        }
-
-        .feature-card p {
-            font-size: 1.1rem;
+        .feature p {
+            color: #888;
+            font-size: 0.95rem;
             line-height: 1.6;
-            opacity: 0.9;
         }
 
-        /* CTA Section */
         .cta {
             text-align: center;
-            padding: 4rem 2rem;
-            max-width: 800px;
-            margin: 0 auto;
+            padding: 4rem 0;
         }
 
         .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #fff;
         }
 
-        .cta-buttons {
+        .cta p {
+            color: #888;
+            margin-bottom: 2rem;
+        }
+
+        .buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 2rem;
         }
 
         .btn {
-            padding: 1rem 2.5rem;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            padding: 0.8rem 2rem;
             text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            border: 1px solid #333;
             display: inline-block;
-            font-weight: 600;
         }
 
         .btn-primary {
-            background: #4ade80;
-            color: #1a1a1a;
+            background: #fff;
+            color: #000;
+            border-color: #fff;
         }
 
         .btn-primary:hover {
-            background: #22c55e;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(74, 222, 128, 0.3);
+            background: #e0e0e0;
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.2);
+            background: transparent;
             color: #fff;
-            border: 2px solid rgba(255, 255, 255, 0.4);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-3px);
+            background: #111;
         }
 
-        /* Footer */
         footer {
-            background: rgba(0, 0, 0, 0.3);
+            background: #111;
             text-align: center;
             padding: 2rem;
             margin-top: 4rem;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.85rem;
         }
 
         footer p {
-            opacity: 0.8;
+            margin: 0.3rem 0;
         }
 
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .server-ip {
-                font-size: 1.3rem;
-                padding: 1rem 2rem;
+                font-size: 2rem;
             }
 
             nav ul {
                 gap: 1rem;
             }
 
-            nav ul li a {
-                font-size: 1rem;
+            .stats {
+                grid-template-columns: 1fr 1fr;
             }
         }
     </style>
@@ -314,77 +222,75 @@
         </ul>
     </nav>
 
-    <div class="hero">
-        <h1>Welcome to TheOutstride</h1>
-        <p>A Private Content Creator SMP</p>
-        <p style="font-size: 1.2rem; opacity: 0.85; margin-top: 1rem;">
-            A HermitCraft-style server featuring talented creators and a custom modpack
-        </p>
-    </div>
+    <div class="container">
+        <div class="hero">
+            <h1>TheOutstride</h1>
+            <p>A private content creator SMP</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Inspired by HermitCraft with a custom modpack</p>
+        </div>
 
-    <div class="stats">
-        <div class="stat-card">
-            <h3>Season 1</h3>
-            <p>Current Season</p>
+        <div class="stats">
+            <div class="stat">
+                <h3>Season 1</h3>
+                <p>Current Season</p>
+            </div>
+            <div class="stat">
+                <h3>Custom</h3>
+                <p>Modpack</p>
+            </div>
+            <div class="stat">
+                <h3>Private</h3>
+                <p>Whitelist Only</p>
+            </div>
+            <div class="stat">
+                <h3>12+</h3>
+                <p>Creators</p>
+            </div>
         </div>
-        <div class="stat-card">
-            <h3>Custom</h3>
-            <p>Modpack</p>
-        </div>
-        <div class="stat-card">
-            <h3>Private</h3>
-            <p>Whitelist Only</p>
-        </div>
-        <div class="stat-card">
-            <h3>Creators</h3>
-            <p>Community Driven</p>
-        </div>
-    </div>
 
-    <div class="features">
-        <h2>What is TheOutstride?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>🎥 Content Creator SMP</h3>
-                <p>A private server featuring talented content creators making videos, streams, and building amazing projects together.</p>
-            </div>
-            <div class="feature-card">
-                <h3>📦 Custom Modpack</h3>
-                <p>Carefully curated mods that enhance gameplay while maintaining the vanilla Minecraft feel and performance.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🏗️ Collaborative Builds</h3>
-                <p>Watch as our creators work together on massive projects, shopping districts, and community events.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🎬 Story-Driven Content</h3>
-                <p>Follow along with ongoing storylines, pranks, and adventures created by our talented members.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🤝 Community Focus</h3>
-                <p>A tight-knit group of creators who support each other and create entertaining content for their audiences.</p>
-            </div>
-            <div class="feature-card">
-                <h3>⚡ Quality Over Quantity</h3>
-                <p>Whitelist-only server ensuring a drama-free, creative environment for all members.</p>
+        <div class="section">
+            <h2>About the Server</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Content Creator SMP</h3>
+                    <p>A private server for talented creators making videos, streams, and building projects together.</p>
+                </div>
+                <div class="feature">
+                    <h3>Custom Modpack</h3>
+                    <p>Carefully selected mods that enhance gameplay while keeping the vanilla feel.</p>
+                </div>
+                <div class="feature">
+                    <h3>Collaborative Builds</h3>
+                    <p>Watch creators work together on massive projects and community events.</p>
+                </div>
+                <div class="feature">
+                    <h3>Story-Driven</h3>
+                    <p>Follow ongoing storylines, pranks, and adventures from our members.</p>
+                </div>
+                <div class="feature">
+                    <h3>Community Focus</h3>
+                    <p>A tight-knit group supporting each other and creating entertaining content.</p>
+                </div>
+                <div class="feature">
+                    <h3>Quality First</h3>
+                    <p>Whitelist-only ensuring a drama-free, creative environment.</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="cta">
-        <h2>Follow Our Creators</h2>
-        <p>Check out the amazing content being created on TheOutstride!</p>
-        <div class="cta-buttons">
-            <a href="staff.html" class="btn btn-primary">Meet the Creators</a>
-            <a href="about.html" class="btn btn-secondary">Learn More</a>
+        <div class="cta">
+            <h2>Follow Our Creators</h2>
+            <p>Check out the content being made on TheOutstride</p>
+            <div class="buttons">
+                <a href="staff.html" class="btn btn-primary">Meet the Creators</a>
+                <a href="about.html" class="btn btn-secondary">Learn More</a>
+            </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 TheOutstride. All rights reserved.</p>
-        <p>Not affiliated with Mojang or Microsoft.</p>
+        <p>&copy; 2024 TheOutstride</p>
+        <p>Not affiliated with Mojang or Microsoft</p>
     </footer>
-
-
 </body>
 </html>

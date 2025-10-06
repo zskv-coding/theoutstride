@@ -12,175 +12,132 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #fff;
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
         }
 
         nav {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
+            background: #111;
+            padding: 1rem 0;
+            border-bottom: 1px solid #222;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
             gap: 2rem;
+            flex-wrap: wrap;
         }
 
-        nav ul li a {
-            color: #fff;
+        nav a {
+            color: #999;
             text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
         }
 
-        nav ul li a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        nav ul li a.active {
-            background: rgba(255, 255, 255, 0.3);
+        nav a:hover,
+        nav a.active {
+            color: #fff;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 3rem 1.5rem;
         }
 
-        .page-header {
-            text-align: center;
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .subtitle {
+            color: #666;
             margin-bottom: 3rem;
         }
 
-        .page-header h1 {
-            font-size: 3rem;
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: #fff;
+            font-weight: 600;
         }
 
-        .page-header p {
-            font-size: 1.3rem;
-            opacity: 0.9;
-        }
-
-        .content-section {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .content-section h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #4ade80;
-        }
-
-        .content-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
+        .section p {
+            color: #888;
             margin-bottom: 1rem;
-            opacity: 0.95;
+            line-height: 1.7;
         }
 
-        .content-section ul {
+        .section ul {
             list-style: none;
-            padding-left: 0;
+            padding: 0;
         }
 
-        .content-section ul li {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 0.8rem;
-            padding-left: 2rem;
+        .section li {
+            color: #888;
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
             position: relative;
         }
 
-        .content-section ul li:before {
-            content: "✓";
+        .section li:before {
+            content: "•";
             position: absolute;
             left: 0;
-            color: #4ade80;
-            font-weight: bold;
-            font-size: 1.3rem;
+            color: #666;
         }
 
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
+        .highlight-box {
+            background: #111;
+            border: 1px solid #222;
+            padding: 2rem;
+            margin: 2rem 0;
         }
 
-        .timeline-item {
-            margin-bottom: 2rem;
-            position: relative;
+        .highlight-box h3 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
-        .timeline-item:before {
-            content: "";
-            position: absolute;
-            left: -2rem;
-            top: 0.5rem;
-            width: 15px;
-            height: 15px;
-            background: #4ade80;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
-        }
-
-        .timeline-item h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #4ade80;
-        }
-
-        .timeline-item p {
-            font-size: 1.1rem;
-            opacity: 0.9;
+        .highlight-box p {
+            color: #888;
         }
 
         footer {
-            background: rgba(0, 0, 0, 0.3);
+            background: #111;
             text-align: center;
             padding: 2rem;
             margin-top: 4rem;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.85rem;
         }
 
         footer p {
-            opacity: 0.8;
+            margin: 0.3rem 0;
         }
 
         @media (max-width: 768px) {
-            .page-header h1 {
+            h1 {
                 font-size: 2rem;
-            }
-
-            .content-section {
-                padding: 1.5rem;
             }
 
             nav ul {
                 gap: 1rem;
-            }
-
-            nav ul li a {
-                font-size: 1rem;
             }
         }
     </style>
@@ -196,87 +153,58 @@
     </nav>
 
     <div class="container">
-        <div class="page-header">
-            <h1>About TheOutstride</h1>
-            <p>A private content creator SMP inspired by HermitCraft</p>
+        <h1>About TheOutstride</h1>
+        <p class="subtitle">A private content creator SMP</p>
+
+        <div class="section">
+            <h2>What is TheOutstride?</h2>
+            <p>TheOutstride is a private, whitelist-only Minecraft SMP server for content creators. Inspired by servers like HermitCraft, we've built a community focused on creativity, collaboration, and quality content.</p>
+            <p>Our server features a custom modpack that enhances the vanilla Minecraft experience without overwhelming it. We believe in letting creativity shine while adding quality-of-life improvements and new features to keep things interesting.</p>
         </div>
 
-        <div class="content-section">
-            <h2>Our Story</h2>
-            <p>
-                TheOutstride is a private, whitelist-only Minecraft SMP server created for content creators who want to 
-                collaborate, build, and create entertaining content together. Inspired by servers like HermitCraft, we've 
-                built a community focused on creativity, collaboration, and quality content creation.
-            </p>
-            <p>
-                Our server features a carefully curated custom modpack that enhances the vanilla Minecraft experience 
-                without overwhelming it. We believe in letting creativity shine while adding just enough quality-of-life 
-                improvements and exciting new features to keep things fresh and interesting.
-            </p>
-        </div>
-
-        <div class="content-section">
-            <h2>What Makes Us Special</h2>
+        <div class="section">
+            <h2>What Makes Us Different</h2>
             <ul>
-                <li>Carefully selected content creators who bring unique perspectives and styles</li>
-                <li>Custom modpack designed to enhance without overwhelming the vanilla experience</li>
+                <li>Carefully selected content creators with unique styles</li>
+                <li>Custom modpack designed to enhance without overwhelming</li>
                 <li>Collaborative projects and community builds</li>
                 <li>Regular server events and storylines</li>
-                <li>Drama-free, supportive environment for all creators</li>
+                <li>Drama-free, supportive environment</li>
                 <li>Shopping district and player-driven economy</li>
-                <li>Season-based format with fresh starts and new opportunities</li>
+                <li>Season-based format with fresh starts</li>
                 <li>Focus on quality content and genuine friendships</li>
             </ul>
         </div>
 
-        <div class="content-section">
+        <div class="section">
             <h2>Our Mission</h2>
-            <p>
-                At TheOutstride, our mission is to provide a creative, collaborative space where content creators can 
-                thrive and produce amazing content for their audiences. We strive to:
-            </p>
+            <p>At TheOutstride, our mission is to provide a creative space where content creators can thrive and produce great content for their audiences.</p>
             <ul>
-                <li>Foster a positive, drama-free environment for all creators</li>
+                <li>Foster a positive, drama-free environment</li>
                 <li>Support each other's content and help channels grow</li>
                 <li>Create engaging storylines and collaborative projects</li>
-                <li>Maintain excellent server performance and stability</li>
-                <li>Balance modded features with vanilla Minecraft charm</li>
-                <li>Build lasting friendships within the creator community</li>
+                <li>Maintain excellent server performance</li>
+                <li>Balance modded features with vanilla charm</li>
+                <li>Build lasting friendships within the community</li>
             </ul>
         </div>
 
-        <div class="content-section">
-            <h2>The Modpack</h2>
-            <p>
-                Our custom modpack is designed to enhance the Minecraft experience while keeping the game's core 
-                identity intact. We've carefully selected mods that add quality-of-life improvements, new building 
-                options, and exciting gameplay mechanics without making the game feel overwhelming or unrecognizable.
-            </p>
-            <p style="margin-top: 1rem;">
-                The modpack includes improvements to building, farming, exploration, and more - all balanced to work 
-                together seamlessly. We regularly update and refine the modpack based on creator feedback to ensure 
-                the best possible experience.
-            </p>
+        <div class="highlight-box">
+            <h3>The Modpack</h3>
+            <p>Our custom modpack enhances Minecraft while keeping its core identity intact. We've selected mods that add quality-of-life improvements, new building options, and gameplay mechanics without making the game feel overwhelming.</p>
+            <p style="margin-top: 1rem;">The modpack includes improvements to building, farming, exploration, and more - all balanced to work together. We regularly update based on creator feedback.</p>
         </div>
 
-        <div class="content-section">
+        <div class="section">
             <h2>Watch Our Creators</h2>
-            <p>
-                TheOutstride is a private, invite-only server for content creators. While you can't join the server 
-                directly, you can follow along with all the amazing content being created! Check out our creators' 
-                channels to watch their adventures, builds, and stories unfold.
-            </p>
-            <p style="margin-top: 1.5rem; text-align: center;">
-                <a href="staff.html" style="color: #4ade80; text-decoration: none; font-size: 1.2rem; font-weight: 600;">
-                    → Meet Our Creators
-                </a>
-            </p>
+            <p>TheOutstride is invite-only for content creators. While you can't join directly, you can follow along with all the content being created! Check out our creators' channels to watch their adventures and builds.</p>
+            <p style="margin-top: 1.5rem;"><a href="staff.html" style="color: #fff; text-decoration: none;">→ Meet Our Creators</a></p>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 TheOutstride. All rights reserved.</p>
-        <p>Not affiliated with Mojang or Microsoft.</p>
+        <p>&copy; 2024 TheOutstride</p>
+        <p>Not affiliated with Mojang or Microsoft</p>
     </footer>
 </body>
 </html>

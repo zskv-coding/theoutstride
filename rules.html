@@ -12,197 +12,121 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #fff;
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
         }
 
         nav {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
+            background: #111;
+            padding: 1rem 0;
+            border-bottom: 1px solid #222;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
             gap: 2rem;
+            flex-wrap: wrap;
         }
 
-        nav ul li a {
-            color: #fff;
+        nav a {
+            color: #999;
             text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
         }
 
-        nav ul li a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        nav ul li a.active {
-            background: rgba(255, 255, 255, 0.3);
+        nav a:hover,
+        nav a.active {
+            color: #fff;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 3rem 1.5rem;
         }
 
-        .page-header {
-            text-align: center;
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .subtitle {
+            color: #666;
             margin-bottom: 3rem;
         }
 
-        .page-header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        .section {
+            margin-bottom: 3rem;
         }
 
-        .page-header p {
-            font-size: 1.3rem;
-            opacity: 0.9;
-        }
-
-        .warning-box {
-            background: rgba(239, 68, 68, 0.2);
-            border: 2px solid rgba(239, 68, 68, 0.5);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .warning-box h3 {
-            color: #fca5a5;
-            margin-bottom: 0.5rem;
+        .section h2 {
             font-size: 1.5rem;
-        }
-
-        .warning-box p {
-            font-size: 1.1rem;
-        }
-
-        .rules-section {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .rules-section h2 {
-            font-size: 2rem;
             margin-bottom: 1.5rem;
-            color: #4ade80;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            color: #fff;
+            font-weight: 600;
         }
 
-        .rule-item {
-            background: rgba(0, 0, 0, 0.2);
+        .rule {
+            background: #111;
+            border: 1px solid #222;
+            border-left: 3px solid #333;
             padding: 1.5rem;
-            border-radius: 10px;
             margin-bottom: 1rem;
-            border-left: 4px solid #4ade80;
-            transition: all 0.3s ease;
         }
 
-        .rule-item:hover {
-            background: rgba(0, 0, 0, 0.3);
-            transform: translateX(5px);
-        }
-
-        .rule-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: #4ade80;
-        }
-
-        .rule-item p {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            opacity: 0.95;
-        }
-
-        .punishment-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1.5rem;
-        }
-
-        .punishment-table th,
-        .punishment-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .punishment-table th {
-            background: rgba(0, 0, 0, 0.3);
-            color: #4ade80;
+        .rule h3 {
             font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-weight: 600;
         }
 
-        .punishment-table td {
-            font-size: 1rem;
+        .rule p {
+            color: #888;
+            line-height: 1.6;
         }
 
-        .punishment-table tr:hover {
-            background: rgba(255, 255, 255, 0.05);
+        .note {
+            background: #111;
+            border: 1px solid #222;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .note p {
+            color: #888;
         }
 
         footer {
-            background: rgba(0, 0, 0, 0.3);
+            background: #111;
             text-align: center;
             padding: 2rem;
             margin-top: 4rem;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.85rem;
         }
 
         footer p {
-            opacity: 0.8;
+            margin: 0.3rem 0;
         }
 
         @media (max-width: 768px) {
-            .page-header h1 {
+            h1 {
                 font-size: 2rem;
-            }
-
-            .rules-section {
-                padding: 1.5rem;
-            }
-
-            .punishment-table {
-                font-size: 0.9rem;
-            }
-
-            .punishment-table th,
-            .punishment-table td {
-                padding: 0.5rem;
             }
 
             nav ul {
                 gap: 1rem;
-            }
-
-            nav ul li a {
-                font-size: 1rem;
             }
         }
     </style>
@@ -218,130 +142,117 @@
     </nav>
 
     <div class="container">
-        <div class="page-header">
-            <h1>Server Guidelines</h1>
-            <p>Community standards for TheOutstride creators</p>
-        </div>
+        <h1>Server Guidelines</h1>
+        <p class="subtitle">Community standards for TheOutstride</p>
 
-        <div class="warning-box">
-            <h3>⚠️ Important Notice</h3>
+        <div class="note">
             <p>These guidelines help maintain a positive, collaborative environment for all creators on TheOutstride.</p>
         </div>
 
-        <div class="rules-section">
-            <h2>🎮 General Guidelines</h2>
-            <div class="rule-item">
-                <h3>1. Be Respectful</h3>
+        <div class="section">
+            <h2>General Guidelines</h2>
+            
+            <div class="rule">
+                <h3>Be Respectful</h3>
                 <p>Treat all creators with respect. We're here to support each other and create great content together. Keep things positive and drama-free.</p>
             </div>
-            <div class="rule-item">
-                <h3>2. No Cheating</h3>
-                <p>Play fair! No x-ray, duplication glitches, or other exploits. If you find a bug, report it to the admin team.</p>
+
+            <div class="rule">
+                <h3>No Cheating</h3>
+                <p>Play fair. No x-ray, duplication glitches, or exploits. If you find a bug, report it to the admin team.</p>
             </div>
-            <div class="rule-item">
-                <h3>3. Respect Builds & Property</h3>
-                <p>Don't grief, steal, or modify others' builds without permission. Pranks are encouraged, but they should be fun and reversible!</p>
+
+            <div class="rule">
+                <h3>Respect Builds & Property</h3>
+                <p>Don't grief, steal, or modify others' builds without permission. Pranks are encouraged, but they should be fun and reversible.</p>
             </div>
-            <div class="rule-item">
-                <h3>4. Content-Friendly Environment</h3>
-                <p>Keep chat and builds appropriate for content creation. Remember that many of us create family-friendly content.</p>
+
+            <div class="rule">
+                <h3>Content-Friendly Environment</h3>
+                <p>Keep chat and builds appropriate for content creation. Many of us create family-friendly content.</p>
             </div>
-            <div class="rule-item">
-                <h3>5. Report Issues</h3>
-                <p>If you encounter bugs, performance issues, or problems with the modpack, let the admin team know so we can fix them.</p>
-            </div>
-            <div class="rule-item">
-                <h3>6. Have Fun!</h3>
-                <p>This is a creative space for making great content and building friendships. Enjoy the experience!</p>
+
+            <div class="rule">
+                <h3>Report Issues</h3>
+                <p>If you encounter bugs, performance issues, or problems with the modpack, let the admin team know.</p>
             </div>
         </div>
 
-        <div class="rules-section">
-            <h2>🏗️ Building & Gameplay</h2>
-            <div class="rule-item">
-                <h3>1. Build Responsibly</h3>
+        <div class="section">
+            <h2>Building & Gameplay</h2>
+            
+            <div class="rule">
+                <h3>Build Responsibly</h3>
                 <p>Keep builds content-appropriate and avoid anything offensive. We want everyone to feel comfortable featuring the server in their videos.</p>
             </div>
-            <div class="rule-item">
-                <h3>2. Optimize Your Builds</h3>
-                <p>Be mindful of server performance. Avoid excessive entities, lag machines, or overly complex redstone that could impact others' gameplay.</p>
+
+            <div class="rule">
+                <h3>Optimize Your Builds</h3>
+                <p>Be mindful of server performance. Avoid excessive entities, lag machines, or overly complex redstone.</p>
             </div>
-            <div class="rule-item">
-                <h3>3. Respect Personal Space</h3>
+
+            <div class="rule">
+                <h3>Respect Personal Space</h3>
                 <p>Give other creators space for their bases and projects. Coordinate with neighbors before building nearby.</p>
             </div>
-            <div class="rule-item">
-                <h3>4. Shopping District</h3>
-                <p>Follow community guidelines for the shopping district. Keep shops active and fairly priced to maintain a healthy economy.</p>
+
+            <div class="rule">
+                <h3>Shopping District</h3>
+                <p>Follow community guidelines for the shopping district. Keep shops active and fairly priced.</p>
             </div>
         </div>
 
-        <div class="rules-section">
-            <h2>💬 Content Creation</h2>
-            <div class="rule-item">
-                <h3>1. Support Each Other</h3>
-                <p>Promote and support fellow creators' content. We grow together!</p>
+        <div class="section">
+            <h2>Content Creation</h2>
+            
+            <div class="rule">
+                <h3>Support Each Other</h3>
+                <p>Promote and support fellow creators' content. We grow together.</p>
             </div>
-            <div class="rule-item">
-                <h3>2. Collaborative Projects</h3>
-                <p>Community builds and events are encouraged! Coordinate with others for epic collaborations.</p>
+
+            <div class="rule">
+                <h3>Collaborative Projects</h3>
+                <p>Community builds and events are encouraged. Coordinate with others for collaborations.</p>
             </div>
-            <div class="rule-item">
-                <h3>3. Storylines & Lore</h3>
+
+            <div class="rule">
+                <h3>Storylines & Lore</h3>
                 <p>Feel free to create storylines and lore, but make sure they're inclusive and don't negatively impact others' content.</p>
             </div>
-            <div class="rule-item">
-                <h3>4. Spoilers</h3>
-                <p>Be mindful of spoilers in chat. Not everyone is caught up on everyone else's content!</p>
+
+            <div class="rule">
+                <h3>Spoilers</h3>
+                <p>Be mindful of spoilers in chat. Not everyone is caught up on everyone else's content.</p>
             </div>
         </div>
 
-        <div class="rules-section">
-            <h2>👮 Server Administration</h2>
-            <div class="rule-item">
-                <h3>1. Admin Decisions</h3>
-                <p>Respect admin decisions regarding server management, modpack updates, and community matters.</p>
+        <div class="section">
+            <h2>Pranks & PvP</h2>
+            
+            <div class="rule">
+                <h3>Pranks Are Encouraged</h3>
+                <p>Pranks are a fun part of the SMP experience. Keep them creative, reversible, and in good spirit.</p>
             </div>
-            <div class="rule-item">
-                <h3>2. Feedback Welcome</h3>
-                <p>Have suggestions for the server or modpack? We'd love to hear them! Reach out to the admin team.</p>
-            </div>
-            <div class="rule-item">
-                <h3>3. Season Resets</h3>
-                <p>Be prepared for seasonal resets. These give everyone a fresh start and keep content interesting!</p>
-            </div>
-        </div>
 
-        <div class="rules-section">
-            <h2>🎯 Pranks & PvP</h2>
-            <div class="rule-item">
-                <h3>1. Pranks Are Encouraged!</h3>
-                <p>Pranks are a fun part of the SMP experience! Keep them creative, reversible, and in good spirit.</p>
-            </div>
-            <div class="rule-item">
-                <h3>2. PvP Guidelines</h3>
+            <div class="rule">
+                <h3>PvP Guidelines</h3>
                 <p>PvP should be consensual unless part of an agreed-upon event or storyline. Don't interrupt others' content recording.</p>
             </div>
-            <div class="rule-item">
-                <h3>3. Prank Cleanup</h3>
-                <p>If asked, help clean up your pranks. The goal is fun, not frustration!</p>
+
+            <div class="rule">
+                <h3>Prank Cleanup</h3>
+                <p>If asked, help clean up your pranks. The goal is fun, not frustration.</p>
             </div>
         </div>
 
-        <div class="rules-section">
-            <h2>📝 Final Notes</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8;">
-                These guidelines are here to help maintain a positive, creative environment for everyone. 
-                Use common sense and remember that we're all here to create great content and have fun together. 
-                When in doubt, communicate with your fellow creators! TheOutstride is built on collaboration, 
-                creativity, and mutual respect.
-            </p>
+        <div class="note">
+            <p>These guidelines help maintain a positive, creative environment. Use common sense and remember we're all here to create great content and have fun together. When in doubt, communicate with your fellow creators.</p>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 TheOutstride. All rights reserved.</p>
-        <p>Not affiliated with Mojang or Microsoft.</p>
+        <p>&copy; 2024 TheOutstride</p>
+        <p>Not affiliated with Mojang or Microsoft</p>
     </footer>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff - TheOutstride</title>
+    <title>Creators - TheOutstride</title>
     <style>
         * {
             margin: 0;
@@ -12,250 +12,140 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #fff;
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
         }
 
         nav {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
+            background: #111;
+            padding: 1rem 0;
+            border-bottom: 1px solid #222;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
             gap: 2rem;
+            flex-wrap: wrap;
         }
 
-        nav ul li a {
-            color: #fff;
+        nav a {
+            color: #999;
             text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
         }
 
-        nav ul li a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        nav ul li a.active {
-            background: rgba(255, 255, 255, 0.3);
+        nav a:hover,
+        nav a.active {
+            color: #fff;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 3rem 1.5rem;
         }
 
-        .page-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .page-header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .page-header p {
-            font-size: 1.3rem;
-            opacity: 0.9;
-        }
-
-        .staff-category {
-            margin-bottom: 3rem;
-        }
-
-        .category-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .category-header h2 {
+        h1 {
             font-size: 2.5rem;
-            color: #4ade80;
             margin-bottom: 0.5rem;
+            color: #fff;
+            text-align: center;
         }
 
-        .category-header p {
-            font-size: 1.1rem;
-            opacity: 0.8;
+        .subtitle {
+            color: #666;
+            margin-bottom: 3rem;
+            text-align: center;
         }
 
-        .staff-grid {
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
 
-        .staff-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 2rem;
+        .card {
+            background: #111;
+            border: 1px solid #222;
+            padding: 2rem 1.5rem;
             text-align: center;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .staff-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(74, 222, 128, 0.5);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .staff-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #4ade80, #22c55e);
-        }
-
-        .staff-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            background: rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            border: 4px solid rgba(74, 222, 128, 0.5);
-        }
-
-        .staff-name {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #4ade80;
-        }
-
-        .staff-role {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 1rem;
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: #fff;
             font-weight: 600;
         }
 
-        .staff-bio {
-            font-size: 1rem;
-            line-height: 1.6;
-            opacity: 0.85;
-            margin-bottom: 1rem;
-        }
-
-        .staff-status {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
+        .card .role {
+            color: #666;
             font-size: 0.9rem;
-            font-weight: 600;
-            margin-top: 0.5rem;
-        }
-
-        .status-online {
-            background: rgba(74, 222, 128, 0.3);
-            color: #4ade80;
-            border: 1px solid #4ade80;
-        }
-
-        .status-offline {
-            background: rgba(156, 163, 175, 0.3);
-            color: #d1d5db;
-            border: 1px solid #9ca3af;
-        }
-
-        .rank-owner { border-color: rgba(239, 68, 68, 0.5); }
-        .rank-owner::before { background: linear-gradient(90deg, #ef4444, #dc2626); }
-        .rank-owner .staff-avatar { border-color: rgba(239, 68, 68, 0.5); }
-        .rank-owner .staff-name { color: #fca5a5; }
-
-        .rank-admin { border-color: rgba(251, 146, 60, 0.5); }
-        .rank-admin::before { background: linear-gradient(90deg, #fb923c, #f97316); }
-        .rank-admin .staff-avatar { border-color: rgba(251, 146, 60, 0.5); }
-        .rank-admin .staff-name { color: #fdba74; }
-
-        .rank-moderator { border-color: rgba(59, 130, 246, 0.5); }
-        .rank-moderator::before { background: linear-gradient(90deg, #3b82f6, #2563eb); }
-        .rank-moderator .staff-avatar { border-color: rgba(59, 130, 246, 0.5); }
-        .rank-moderator .staff-name { color: #93c5fd; }
-
-        .rank-helper { border-color: rgba(74, 222, 128, 0.5); }
-        .rank-helper::before { background: linear-gradient(90deg, #4ade80, #22c55e); }
-        .rank-helper .staff-avatar { border-color: rgba(74, 222, 128, 0.5); }
-        .rank-helper .staff-name { color: #4ade80; }
-
-        .info-box {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .info-box h3 {
-            font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: #4ade80;
         }
 
-        .info-box p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            opacity: 0.9;
+        .card .bio {
+            color: #888;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .note {
+            background: #111;
+            border: 1px solid #222;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .note p {
+            color: #888;
         }
 
         footer {
-            background: rgba(0, 0, 0, 0.3);
+            background: #111;
             text-align: center;
             padding: 2rem;
             margin-top: 4rem;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.85rem;
         }
 
         footer p {
-            opacity: 0.8;
+            margin: 0.3rem 0;
         }
 
         @media (max-width: 768px) {
-            .page-header h1 {
+            h1 {
                 font-size: 2rem;
-            }
-
-            .staff-grid {
-                grid-template-columns: 1fr;
             }
 
             nav ul {
                 gap: 1rem;
             }
 
-            nav ul li a {
-                font-size: 1rem;
+            .grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -271,145 +161,105 @@
     </nav>
 
     <div class="container">
-        <div class="page-header">
-            <h1>Our Creators</h1>
-            <p>Meet the talented content creators of TheOutstride</p>
-        </div>
+        <h1>Our Creators</h1>
+        <p class="subtitle">The talented people behind TheOutstride</p>
 
-        <!-- Server Admin -->
-        <div class="staff-category">
-            <div class="category-header">
-                <h2>👑 Server Admin</h2>
-                <p>The person keeping everything running smoothly</p>
-            </div>
-            <div class="staff-grid">
-                <div class="staff-card rank-owner">
-                    <div class="staff-avatar">👑</div>
-                    <div class="staff-name">AdminName</div>
-                    <div class="staff-role">Server Administrator</div>
-                    <div class="staff-bio">Manages the server, modpack, and technical infrastructure. Keeping TheOutstride running smoothly for all creators.</div>
-                    <div class="staff-status status-online">● Online</div>
+        <div class="section">
+            <h2>Server Admin</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>AdminName</h3>
+                    <div class="role">Server Administrator</div>
+                    <div class="bio">Manages the server, modpack, and technical infrastructure. Keeping TheOutstride running smoothly for all creators.</div>
                 </div>
             </div>
         </div>
 
-        <!-- Content Creators -->
-        <div class="staff-category">
-            <div class="category-header">
-                <h2>🎥 Content Creators</h2>
-                <p>The talented creators making TheOutstride come alive</p>
-            </div>
-            <div class="staff-grid">
-                <div class="staff-card rank-admin">
-                    <div class="staff-avatar">🎥</div>
-                    <div class="staff-name">CreatorName1</div>
-                    <div class="staff-role">YouTube Creator</div>
-                    <div class="staff-bio">Building epic structures and creating entertaining content. Subscribe to follow the journey!</div>
-                    <div class="staff-status status-online">● Online</div>
+        <div class="section">
+            <h2>Content Creators</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>CreatorName1</h3>
+                    <div class="role">YouTube Creator</div>
+                    <div class="bio">Building epic structures and creating entertaining content. Subscribe to follow the journey!</div>
                 </div>
-                <div class="staff-card rank-admin">
-                    <div class="staff-avatar">🎥</div>
-                    <div class="staff-name">CreatorName2</div>
-                    <div class="staff-role">Twitch Streamer</div>
-                    <div class="staff-bio">Live streaming adventures and community events. Come hang out in chat!</div>
-                    <div class="staff-status status-online">● Online</div>
+
+                <div class="card">
+                    <h3>CreatorName2</h3>
+                    <div class="role">Twitch Streamer</div>
+                    <div class="bio">Live streaming adventures and community events. Come hang out in chat!</div>
                 </div>
-                <div class="staff-card rank-admin">
-                    <div class="staff-avatar">🎥</div>
-                    <div class="staff-name">CreatorName3</div>
-                    <div class="staff-role">YouTube Creator</div>
-                    <div class="staff-bio">Master builder and redstone engineer. Creating technical content and tutorials.</div>
-                    <div class="staff-status status-offline">● Offline</div>
+
+                <div class="card">
+                    <h3>CreatorName3</h3>
+                    <div class="role">YouTube Creator</div>
+                    <div class="bio">Master builder and redstone engineer. Creating technical content and tutorials.</div>
                 </div>
-                <div class="staff-card rank-admin">
-                    <div class="staff-avatar">🎥</div>
-                    <div class="staff-name">CreatorName4</div>
-                    <div class="staff-role">Multi-Platform Creator</div>
-                    <div class="staff-bio">Storyteller and lore master. Bringing narrative depth to the server.</div>
-                    <div class="staff-status status-online">● Online</div>
+
+                <div class="card">
+                    <h3>CreatorName4</h3>
+                    <div class="role">Multi-Platform Creator</div>
+                    <div class="bio">Storyteller and lore master. Bringing narrative depth to the server.</div>
                 </div>
-                <div class="staff-card rank-admin">
-                    <div class="staff-avatar">🎥</div>
-                    <div class="staff-name">CreatorName5</div>
-                    <div class="staff-role">YouTube Creator</div>
-                    <div class="staff-bio">PvP enthusiast and event organizer. Always up for a challenge!</div>
-                    <div class="staff-status status-offline">● Offline</div>
+
+                <div class="card">
+                    <h3>CreatorName5</h3>
+                    <div class="role">YouTube Creator</div>
+                    <div class="bio">PvP enthusiast and event organizer. Always up for a challenge!</div>
                 </div>
-                <div class="staff-card rank-admin">
-                    <div class="staff-avatar">🎥</div>
-                    <div class="staff-name">CreatorName6</div>
-                    <div class="staff-role">Twitch Streamer</div>
-                    <div class="staff-bio">Survival expert and resource gatherer. Making the grind entertaining!</div>
-                    <div class="staff-status status-online">● Online</div>
+
+                <div class="card">
+                    <h3>CreatorName6</h3>
+                    <div class="role">Twitch Streamer</div>
+                    <div class="bio">Survival expert and resource gatherer. Making the grind entertaining!</div>
+                </div>
+
+                <div class="card">
+                    <h3>CreatorName7</h3>
+                    <div class="role">YouTube Creator</div>
+                    <div class="bio">Decorator and interior designer. Making every build beautiful!</div>
+                </div>
+
+                <div class="card">
+                    <h3>CreatorName8</h3>
+                    <div class="role">TikTok Creator</div>
+                    <div class="bio">Creating short-form content and funny moments from the server.</div>
+                </div>
+
+                <div class="card">
+                    <h3>CreatorName9</h3>
+                    <div class="role">YouTube Creator</div>
+                    <div class="bio">Modpack expert showcasing all the cool features and mechanics.</div>
+                </div>
+
+                <div class="card">
+                    <h3>CreatorName10</h3>
+                    <div class="role">Twitch Streamer</div>
+                    <div class="bio">Community events host and shopping district manager.</div>
+                </div>
+
+                <div class="card">
+                    <h3>CreatorName11</h3>
+                    <div class="role">YouTube Creator</div>
+                    <div class="bio">Prankster extraordinaire. Always planning the next big surprise!</div>
+                </div>
+
+                <div class="card">
+                    <h3>CreatorName12</h3>
+                    <div class="role">Multi-Platform Creator</div>
+                    <div class="bio">Explorer and adventurer. Documenting every corner of the world.</div>
                 </div>
             </div>
         </div>
 
-        <!-- More Creators -->
-        <div class="staff-category">
-            <div class="staff-grid">
-                <div class="staff-card rank-moderator">
-                    <div class="staff-avatar">🎬</div>
-                    <div class="staff-name">CreatorName7</div>
-                    <div class="staff-role">YouTube Creator</div>
-                    <div class="staff-bio">Decorator and interior designer. Making every build beautiful!</div>
-                    <div class="staff-status status-online">● Online</div>
-                </div>
-                <div class="staff-card rank-moderator">
-                    <div class="staff-avatar">🎬</div>
-                    <div class="staff-name">CreatorName8</div>
-                    <div class="staff-role">TikTok Creator</div>
-                    <div class="staff-bio">Creating short-form content and funny moments from the server.</div>
-                    <div class="staff-status status-online">● Online</div>
-                </div>
-                <div class="staff-card rank-moderator">
-                    <div class="staff-avatar">🎬</div>
-                    <div class="staff-name">CreatorName9</div>
-                    <div class="staff-role">YouTube Creator</div>
-                    <div class="staff-bio">Modpack expert showcasing all the cool features and mechanics.</div>
-                    <div class="staff-status status-offline">● Offline</div>
-                </div>
-                <div class="staff-card rank-moderator">
-                    <div class="staff-avatar">🎬</div>
-                    <div class="staff-name">CreatorName10</div>
-                    <div class="staff-role">Twitch Streamer</div>
-                    <div class="staff-bio">Community events host and shopping district manager.</div>
-                    <div class="staff-status status-offline">● Offline</div>
-                </div>
-                <div class="staff-card rank-moderator">
-                    <div class="staff-avatar">🎬</div>
-                    <div class="staff-name">CreatorName11</div>
-                    <div class="staff-role">YouTube Creator</div>
-                    <div class="staff-bio">Prankster extraordinaire. No one's base is safe!</div>
-                    <div class="staff-status status-online">● Online</div>
-                </div>
-                <div class="staff-card rank-moderator">
-                    <div class="staff-avatar">🎬</div>
-                    <div class="staff-name">CreatorName12</div>
-                    <div class="staff-role">Multi-Platform Creator</div>
-                    <div class="staff-bio">Collaborative builder working on massive community projects.</div>
-                    <div class="staff-status status-offline">● Offline</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="info-box">
-            <h3>Follow Our Creators!</h3>
-            <p>
-                Each creator brings their own unique style and perspective to TheOutstride. Check out their channels 
-                to watch different viewpoints of the same events, discover new builds, and follow along with ongoing 
-                storylines and adventures!
-            </p>
-            <p style="margin-top: 1rem;">
-                <strong>Note:</strong> TheOutstride is a private, invite-only server. We're not currently accepting 
-                new members, but you can enjoy all the content our creators produce!
-            </p>
+        <div class="note">
+            <p>TheOutstride is a private, invite-only server for content creators. Follow our creators' channels to watch their adventures!</p>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 TheOutstride. All rights reserved.</p>
-        <p>Not affiliated with Mojang or Microsoft.</p>
+        <p>&copy; 2024 TheOutstride</p>
+        <p>Not affiliated with Mojang or Microsoft</p>
     </footer>
 </body>
 </html>
