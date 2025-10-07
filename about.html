@@ -42,6 +42,40 @@
             50% { opacity: 1; }
         }
 
+        .shooting-star {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, #fff, transparent);
+            animation: shoot 3s ease-out infinite;
+        }
+
+        @keyframes shoot {
+            0% {
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(300px) translateY(300px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
         nav, .container, footer {
             position: relative;
             z-index: 1;
@@ -87,6 +121,7 @@
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
             color: #f4d03f;
+            text-shadow: 0 0 30px rgba(244, 208, 63, 0.5);
         }
 
         .subtitle {
@@ -94,8 +129,24 @@
             margin-bottom: 3rem;
         }
 
+        a {
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            text-shadow: 0 0 10px rgba(244, 208, 63, 0.6);
+        }
+
         .section {
             margin-bottom: 3rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(244, 208, 63, 0.1);
         }
 
         .section h2 {
@@ -103,6 +154,7 @@
             margin-bottom: 1rem;
             color: #f4d03f;
             font-weight: 600;
+            text-shadow: 0 0 20px rgba(244, 208, 63, 0.3);
         }
 
         .section p {
@@ -136,12 +188,21 @@
             border-left: 3px solid #c94545;
             padding: 2rem;
             margin: 2rem 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-width 0.3s ease;
+        }
+
+        .highlight-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(201, 69, 69, 0.2);
+            border-left-width: 5px;
         }
 
         .highlight-box h3 {
             color: #f4d03f;
             margin-bottom: 1rem;
             font-size: 1.2rem;
+            text-shadow: 0 0 15px rgba(244, 208, 63, 0.4);
         }
 
         .highlight-box p {
@@ -177,6 +238,8 @@
     <div class="stars" id="stars"></div>
     <script>
         const starsContainer = document.getElementById('stars');
+        
+        // Regular stars
         for (let i = 0; i < 100; i++) {
             const star = document.createElement('div');
             star.className = 'star';
@@ -187,6 +250,44 @@
             star.style.animationDuration = (Math.random() * 3 + 2) + 's';
             starsContainer.appendChild(star);
         }
+
+        // Shooting stars
+        function createShootingStar() {
+            const shootingStar = document.createElement('div');
+            shootingStar.className = 'shooting-star';
+            shootingStar.style.left = Math.random() * 50 + '%';
+            shootingStar.style.top = Math.random() * 50 + '%';
+            shootingStar.style.width = Math.random() * 100 + 50 + 'px';
+            shootingStar.style.animationDuration = (Math.random() * 2 + 1) + 's';
+            starsContainer.appendChild(shootingStar);
+            
+            setTimeout(() => shootingStar.remove(), 3000);
+        }
+
+        // Create shooting star every 4-8 seconds
+        setInterval(createShootingStar, Math.random() * 4000 + 4000);
+        
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections after page load
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.section, .highlight-box').forEach(el => {
+                observer.observe(el);
+            });
+        });
     </script>
     <nav>
         <ul>
